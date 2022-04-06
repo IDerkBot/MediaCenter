@@ -1,0 +1,28 @@
+﻿<Page
+	x:Class="MediaCenter.Views.Pages.SettingsPage"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:local="clr-namespace:MediaCenter.Views.Pages"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+	Title="SettingsPage"
+	HorizontalAlignment="Center"
+	VerticalAlignment="Center"
+	d:DesignHeight="100"
+	d:DesignWidth="300"
+	Loaded="SettingsPage_OnLoaded"
+	mc:Ignorable="d">
+
+	<StackPanel Width="300">
+		<ComboBox
+			Name="CbFiles"
+			md:HintAssist.Hint="Файл для договора"
+			md:HintAssist.IsFloating="True"
+			DisplayMemberPath="Title" />
+		<Button
+			Margin="0,5"
+			Click="ButtonBase_OnClick"
+			Content="Сохранить" />
+	</StackPanel>
+</Page>

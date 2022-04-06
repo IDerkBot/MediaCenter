@@ -1,0 +1,51 @@
+﻿<Page
+	x:Class="MediaCenter.Views.Pages.Edit.ServiceEditPage"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:local="clr-namespace:MediaCenter.Views.Pages.Edit"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+	Title="ServiceEditPage"
+	HorizontalAlignment="Center"
+	VerticalAlignment="Center"
+	d:DesignHeight="200"
+	d:DesignWidth="300"
+	Loaded="ServiceEditPage_OnLoaded"
+	mc:Ignorable="d">
+
+	<StackPanel Width="300">
+		<TextBox
+			md:HintAssist.Hint="Название"
+			md:HintAssist.IsFloating="True"
+			md:ValidationAssist.HasError="True"
+			Text="{Binding Name}" />
+		<TextBox
+			md:HintAssist.Hint="Стоимость"
+			md:HintAssist.IsFloating="True"
+			Text="{Binding Cost}" />
+		<ComboBox
+			Name="CbTypes"
+			md:HintAssist.Hint="Тип"
+			md:HintAssist.IsFloating="True"
+			DisplayMemberPath="Name"
+			SelectedItem="{Binding TypeService1}" />
+		<Button
+			Margin="0,5"
+			Padding="0"
+			Click="ButtonBase_OnClick">
+			<StackPanel
+				HorizontalAlignment="Center"
+				VerticalAlignment="Center"
+				Orientation="Horizontal">
+				<md:PackIcon
+					Width="25"
+					Height="25"
+					Margin="5"
+					VerticalAlignment="Center"
+					Kind="ContentSave" />
+				<TextBlock VerticalAlignment="Center" Text="Сохранить" />
+			</StackPanel>
+		</Button>
+	</StackPanel>
+</Page>

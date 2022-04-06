@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e4c12e5f63004c859c85be7e08416390" Name="Diagram1">
+        <EntityTypeShape EntityType="MediaCenterModel.Customer" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MediaCenterModel.Manager" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MediaCenterModel.Order" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="MediaCenterModel.Service" Width="1.5" PointX="3" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MediaCenterModel.sysdiagram" Width="1.5" PointX="5.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MediaCenterModel.TypeService" Width="1.5" PointX="0.75" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MediaCenterModel.User" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <AssociationConnector Association="MediaCenterModel.FK_Order_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="MediaCenterModel.FK_Manager_User" ManuallyRouted="false" />
+        <AssociationConnector Association="MediaCenterModel.FK_Order_Manager" ManuallyRouted="false" />
+        <AssociationConnector Association="MediaCenterModel.FK_Order_Service" ManuallyRouted="false" />
+        <AssociationConnector Association="MediaCenterModel.FK_Service_TypeService" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="MediaCenterModel.Document" Width="1.5" PointX="7.375" PointY="0.75" />
+        <EntityTypeShape EntityType="MediaCenterModel.Setting" Width="1.5" PointX="8.375" PointY="3.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

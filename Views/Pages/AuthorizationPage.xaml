@@ -1,0 +1,42 @@
+﻿<Page
+	x:Class="MediaCenter.Views.Pages.AuthorizationPage"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+	Title="Авторизация"
+	HorizontalAlignment="Center"
+	VerticalAlignment="Center"
+	d:DesignHeight="250"
+	d:DesignWidth="300"
+	Loaded="AuthorizationPage_OnLoaded"
+	mc:Ignorable="d">
+
+	<StackPanel Width="300">
+		<TextBlock
+			Margin="0,0,0,50"
+			HorizontalAlignment="Center"
+			FontFamily="Montserrat"
+			FontSize="18"
+			FontWeight="ExtraBold"
+			Text="Авторизация" />
+		<TextBox
+			Name="TbLogin"
+			md:HintAssist.Hint="Логин"
+			md:HintAssist.IsFloating="True" />
+		<PasswordBox
+			Name="PbPassword"
+			md:HintAssist.Hint="Пароль"
+			md:HintAssist.IsFloating="True" />
+		<CheckBox
+			Name="IsRemember"
+			Margin="5"
+			Content="Запомнить" />
+		<Button
+			Margin="0,5"
+			Click="BtnAuth_OnClick"
+			Content="Войти" />
+		<Button Click="BtnRegistrationMove_OnClick" Content="Зарегистрироваться" />
+	</StackPanel>
+</Page>
