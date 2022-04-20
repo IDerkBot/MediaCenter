@@ -82,6 +82,22 @@ namespace MediaCenter.Views.Pages
 		private void OrdersPage_OnLoaded(object sender, RoutedEventArgs e)
 		{
 			DgOrders.ItemsSource = MediaCenterEntities.GetContext().Orders.ToList();
+
+			var sortList = DgOrders.Columns.Select(x => x.Header).ToList();
+			sortList.Remove(sortList.Last());
+			sortList.Remove(sortList.Last());
+			CbSort.ItemsSource = sortList;
+
+			//if (MediaCenterEntities.GetContext().Managers.Any(x => x.IDUser == Data.UserID))
+			//{
+			//	BtnEdit.Visibility = Visibility.Visible;
+			//	BtnAdd.Visibility = Visibility.Visible;
+			//}
+			//else
+			//{
+			//	BtnEdit.Visibility = Visibility.Collapsed;
+			//	BtnAdd.Visibility = Visibility.Collapsed;
+			//}
 		}
 	}
 }

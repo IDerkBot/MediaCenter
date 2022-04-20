@@ -46,13 +46,12 @@
 			md:HintAssist.IsFloating="True"
 			MaxLength="4"
 			Text="{Binding Duration}"
-			TextChanged="TextBoxBase_OnTextChanged" />
+			TextChanged="TextBoxBase_OnTextChanged" Cursor="IBeam" />
 		<TextBlock
 			Name="TbSum"
 			Margin="5"
 			HorizontalAlignment="Center"
-			FontSize="18"
-			Text="{Binding Sum, StringFormat=Сумма: {0} рублей}" />
+			FontSize="18" />
 		<Border
 			MinHeight="50"
 			Margin="5"

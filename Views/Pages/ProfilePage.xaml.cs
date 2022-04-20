@@ -4,7 +4,10 @@ using System.IO;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Forms;
 using System.Windows.Media.Imaging;
+using DataFormats = System.Windows.DataFormats;
+using DragEventArgs = System.Windows.DragEventArgs;
 
 namespace MediaCenter.Views.Pages
 {
@@ -52,6 +55,16 @@ namespace MediaCenter.Views.Pages
 			TbProfileImage.Visibility = Visibility.Collapsed;
 			ProfileImage.Visibility = Visibility.Visible;
 			//ms.Dispose();
+		}
+
+		private void BtnImageLoad_OnClick(object sender, RoutedEventArgs e)
+		{
+			var of = new OpenFileDialog();
+			if (of.ShowDialog() == DialogResult.OK)
+			{
+
+			}
+			
 		}
 	}
 }

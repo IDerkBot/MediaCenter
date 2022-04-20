@@ -66,7 +66,7 @@
 					Header="Услуга" />
 				<DataGridTextColumn
 					Width="*"
-					Binding="{Binding Date}"
+					Binding="{Binding Date, StringFormat=dd.MM.yyyy}"
 					Header="Дата" />
 				<DataGridTextColumn
 					Width=".6*"
@@ -82,7 +82,7 @@
 						</DataTemplate>
 					</DataGridTemplateColumn.CellTemplate>
 				</DataGridTemplateColumn>
-				<DataGridTemplateColumn x:Name="Edit">
+				<DataGridTemplateColumn x:Name="BtnEdit">
 					<DataGridTemplateColumn.CellTemplate>
 						<DataTemplate>
 							<Button

@@ -56,7 +56,7 @@ namespace MediaCenter.Views.Pages.Edit
 
 		private void TextBoxBase_OnTextChanged(object sender, TextChangedEventArgs e)
 		{
-			if (!string.IsNullOrWhiteSpace(TbDuration.Text) && _currentOrder.Service != null)
+			if (!string.IsNullOrWhiteSpace(TbDuration.Text) && _currentOrder.Service != null && TbDuration.Text.All(char.IsDigit))
 			{
 				var cost = MediaCenterEntities.GetContext().Services.ToList().Where(x => x.Name == _currentOrder.Service.Name).Select(x => x.Cost).First();
 				var count = decimal.Parse(TbDuration.Text);

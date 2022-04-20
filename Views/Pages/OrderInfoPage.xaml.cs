@@ -2,7 +2,6 @@
 using MediaCenter.Models.Entity;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Diagnostics;
 using System.Globalization;
 using System.IO;
@@ -142,7 +141,6 @@ namespace MediaCenter.Views.Pages
 				MediaCenterEntities.GetContext().Documents.First().File);
 			try
 			{
-				
 				object file = new FileInfo($"{folder}/{Data.CurrentDirectory}/document.docx").FullName;
 				var missing = Type.Missing;
 				app.Documents.Open(file);
@@ -154,19 +152,7 @@ namespace MediaCenter.Views.Pages
 					object wrap = word.WdFindWrap.wdFindContinue;
 					object replace = word.WdReplace.wdReplaceAll;
 
-					find.Execute(
-						Type.Missing,
-						false,
-						false,
-						false,
-						missing,
-						false,
-						true,
-						wrap,
-						false,
-						missing,
-						replace
-					);
+					find.Execute( Type.Missing, false, false, false, missing, false, true, wrap, false, missing, replace );
 				}
 				app.ActiveDocument.SaveAs2(
 					$"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}/{_currentOrder.ID}-{_currentOrder.Date.ToString(culture.DateTimeFormat.ShortDatePattern)}.docx");
@@ -184,9 +170,6 @@ namespace MediaCenter.Views.Pages
 				File.Delete($"{folder}/{Data.CurrentDirectory}/document.docx");
 				Process.Start(
 					$"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}/{_currentOrder.ID}-{_currentOrder.Date.ToString(culture.DateTimeFormat.ShortDatePattern)}.docx");
-				//File.Open(
-				//	$"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}/{_currentOrder.ID}-{_currentOrder.Date.ToString(culture.DateTimeFormat.ShortDatePattern)}.docx",
-				//	FileMode.Open, FileAccess.Read);
 			}
 		}
 	}

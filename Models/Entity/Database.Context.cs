@@ -23,9 +23,8 @@ namespace MediaCenter.Models.Entity
 				_ctx = new MediaCenterEntities();
 			return _ctx;
 		}
-
 		public MediaCenterEntities()
-					: base("name=MediaCenterEntities")
+						: base("name=MediaCenterEntities")
 		{
 		}
 
@@ -35,13 +34,13 @@ namespace MediaCenter.Models.Entity
 		}
 
 		public virtual DbSet<Customer> Customers { get; set; }
+		public virtual DbSet<Document> Documents { get; set; }
 		public virtual DbSet<Manager> Managers { get; set; }
 		public virtual DbSet<Order> Orders { get; set; }
 		public virtual DbSet<Service> Services { get; set; }
+		public virtual DbSet<Setting> Settings { get; set; }
 		public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
 		public virtual DbSet<TypeService> TypeServices { get; set; }
 		public virtual DbSet<User> Users { get; set; }
-		public virtual DbSet<Document> Documents { get; set; }
-		public virtual DbSet<Setting> Settings { get; set; }
 	}
 }

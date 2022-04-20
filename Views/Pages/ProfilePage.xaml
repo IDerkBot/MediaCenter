@@ -11,104 +11,126 @@
 	HorizontalAlignment="Center"
 	VerticalAlignment="Center"
 	d:DesignHeight="450"
-	d:DesignWidth="300"
+	d:DesignWidth="650"
 	Cursor="IBeam"
 	Loaded="ProfilePage_OnLoaded"
 	mc:Ignorable="d">
-
-	<StackPanel Width="300">
-		<Border
-			Name="BImage"
-			Width="280"
-			MinHeight="50"
-			MaxHeight="280"
+	<StackPanel Orientation="Horizontal">
+		<StackPanel VerticalAlignment="Center">
+			<Border
+				Name="BImage"
+				Width="280"
+				MinHeight="50"
+				MaxHeight="280"
+				Margin="10"
+				AllowDrop="True"
+				CornerRadius="10"
+				Cursor="Arrow"
+				Drop="BImage_OnDrop">
+				<Grid>
+					<TextBlock
+						Name="TbProfileImage"
+						HorizontalAlignment="Center"
+						VerticalAlignment="Center"
+						FontFamily="Montserrat"
+						FontSize="14"
+						FontWeight="ExtraBold"
+						Foreground="#3f51b5"
+						Text="Перетащите изображение" />
+					<Image
+						Name="ProfileImage"
+						Stretch="UniformToFill"
+						Visibility="Collapsed">
+						<Image.Clip>
+							<RectangleGeometry
+								RadiusX="10"
+								RadiusY="10"
+								Rect="0,0,280,280" />
+						</Image.Clip>
+						<Image.Source>
+							<Binding Path="Image" />
+						</Image.Source>
+					</Image>
+				</Grid>
+			</Border>
+			<Button
+				Margin="10"
+				Click="BtnImageLoad_OnClick"
+				Content="Загрузить" />
+		</StackPanel>
+		<StackPanel
+			Width="300"
 			Margin="10"
-			AllowDrop="True"
-			Drop="BImage_OnDrop">
-			<Grid>
-				<TextBlock
-					Name="TbProfileImage"
+			VerticalAlignment="Center">
+			<TextBox
+				md:HintAssist.Hint="Фамилия"
+				md:HintAssist.IsFloating="True"
+				md:ValidationAssist.HasError="True">
+				<TextBox.Text>
+					<Binding Path="Surname">
+						<Binding.ValidationRules>
+							<validation:NotEmptyValidationRule ValidatesOnTargetUpdated="True" />
+						</Binding.ValidationRules>
+					</Binding>
+				</TextBox.Text>
+			</TextBox>
+			<TextBox md:HintAssist.Hint="Имя" md:HintAssist.IsFloating="True">
+				<TextBox.Text>
+					<Binding Path="Name">
+						<Binding.ValidationRules>
+							<validation:NotEmptyValidationRule ValidatesOnTargetUpdated="True" />
+						</Binding.ValidationRules>
+					</Binding>
+				</TextBox.Text>
+			</TextBox>
+			<TextBox md:HintAssist.Hint="Отчество" md:HintAssist.IsFloating="True">
+				<TextBox.Text>
+					<Binding Path="Patronymic">
+						<Binding.ValidationRules>
+							<validation:NotEmptyValidationRule ValidatesOnTargetUpdated="True" />
+						</Binding.ValidationRules>
+					</Binding>
+				</TextBox.Text>
+			</TextBox>
+			<TextBox
+				md:HintAssist.Hint="Номер телефона"
+				md:HintAssist.IsFloating="True"
+				md:TextFieldAssist.PrefixText="+7"
+				MaxLength="10">
+				<TextBox.Text>
+					<Binding Path="Phone">
+						<Binding.ValidationRules>
+							<validation:PhoneValidationRule ValidatesOnTargetUpdated="True" />
+						</Binding.ValidationRules>
+					</Binding>
+				</TextBox.Text>
+			</TextBox>
+			<TextBox md:HintAssist.Hint="Почта" md:HintAssist.IsFloating="True">
+				<TextBox.Text>
+					<Binding Path="Email">
+						<Binding.ValidationRules>
+							<validation:EmailValidationRule ValidatesOnTargetUpdated="True" />
+						</Binding.ValidationRules>
+					</Binding>
+				</TextBox.Text>
+			</TextBox>
+			<Button
+				Margin="0,5"
+				Padding="0"
+				Click="ButtonBase_OnClick">
+				<StackPanel
 					HorizontalAlignment="Center"
 					VerticalAlignment="Center"
-					Text="Перетащите изображение" />
-				<Image
-					Name="ProfileImage"
-					Stretch="UniformToFill"
-					Visibility="Collapsed">
-					<Image.Source>
-						<Binding Path="Image" />
-					</Image.Source>
-				</Image>
-			</Grid>
-		</Border>
-		<TextBox
-			md:HintAssist.Hint="Фамилия"
-			md:HintAssist.IsFloating="True"
-			md:ValidationAssist.HasError="True">
-			<TextBox.Text>
-				<Binding Path="Surname">
-					<Binding.ValidationRules>
-						<validation:NotEmptyValidationRule ValidatesOnTargetUpdated="True" />
-					</Binding.ValidationRules>
-				</Binding>
-			</TextBox.Text>
-		</TextBox>
-		<TextBox md:HintAssist.Hint="Имя" md:HintAssist.IsFloating="True">
-			<TextBox.Text>
-				<Binding Path="Name">
-					<Binding.ValidationRules>
-						<validation:NotEmptyValidationRule ValidatesOnTargetUpdated="True" />
-					</Binding.ValidationRules>
-				</Binding>
-			</TextBox.Text>
-		</TextBox>
-		<TextBox md:HintAssist.Hint="Отчество" md:HintAssist.IsFloating="True">
-			<TextBox.Text>
-				<Binding Path="Patronymic">
-					<Binding.ValidationRules>
-						<validation:NotEmptyValidationRule ValidatesOnTargetUpdated="True" />
-					</Binding.ValidationRules>
-				</Binding>
-			</TextBox.Text>
-		</TextBox>
-		<TextBox
-			md:HintAssist.Hint="Номер телефона"
-			md:HintAssist.IsFloating="True"
-			md:TextFieldAssist.PrefixText="+7"
-			MaxLength="10">
-			<TextBox.Text>
-				<Binding Path="Phone">
-					<Binding.ValidationRules>
-						<validation:PhoneValidationRule ValidatesOnTargetUpdated="True" />
-					</Binding.ValidationRules>
-				</Binding>
-			</TextBox.Text>
-		</TextBox>
-		<TextBox md:HintAssist.Hint="Почта" md:HintAssist.IsFloating="True">
-			<TextBox.Text>
-				<Binding Path="Email">
-					<Binding.ValidationRules>
-						<validation:EmailValidationRule ValidatesOnTargetUpdated="True" />
-					</Binding.ValidationRules>
-				</Binding>
-			</TextBox.Text>
-		</TextBox>
-		<Button
-			Margin="0,5"
-			Padding="0"
-			Click="ButtonBase_OnClick">
-			<StackPanel
-				HorizontalAlignment="Center"
-				VerticalAlignment="Center"
-				Orientation="Horizontal">
-				<md:PackIcon
-					Width="25"
-					Height="25"
-					Margin="5"
-					VerticalAlignment="Center"
-					Kind="ContentSave" />
-				<TextBlock VerticalAlignment="Center" Text="Сохранить" />
-			</StackPanel>
-		</Button>
+					Orientation="Horizontal">
+					<md:PackIcon
+						Width="25"
+						Height="25"
+						Margin="5"
+						VerticalAlignment="Center"
+						Kind="ContentSave" />
+					<TextBlock VerticalAlignment="Center" Text="Сохранить" />
+				</StackPanel>
+			</Button>
+		</StackPanel>
 	</StackPanel>
 </Page>

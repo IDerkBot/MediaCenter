@@ -7,19 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System.IO;
-using System.Runtime.CompilerServices;
-
 namespace MediaCenter.Models.Entity
 {
-    using System;
-    using System.Collections.Generic;
-    
-    public partial class Document
-    {
-        public int ID { get; set; }
-        public string Title { get; set; }
-        public byte[] File { get; set; }
-        public string Load => (File == null) ? "Не загружен" : "Загружен";
-    }
+	using System;
+	using System.Collections.Generic;
+
+	public partial class Document
+	{
+		public int ID { get; set; }
+		public string Title { get; set; }
+		public byte[] File { get; set; }
+		public string Load => (File == null) ? "Не загружен" : "Загружен";
+	}
 }
