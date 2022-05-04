@@ -1,18 +1,18 @@
-﻿using MediaCenter.Models.Entity;
+﻿using MediaCenter.Models;
+using MediaCenter.Models.Entity;
 using System;
 using System.IO;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using MediaCenter.Models;
 
 namespace MediaCenter.Views.Pages.Edit
 {
-	/// <summary>
-	/// Логика взаимодействия для OrderEditPage.xaml
-	/// </summary>
-	public partial class OrderEditPage : Page
+    /// <summary>
+    /// Логика взаимодействия для OrderEditPage.xaml
+    /// </summary>
+    public partial class OrderEditPage : Page
 	{
 		private readonly Order _currentOrder;
 		public OrderEditPage(Order selectedOrder = null)
@@ -21,6 +21,9 @@ namespace MediaCenter.Views.Pages.Edit
 			_currentOrder = selectedOrder ?? new Order();
 			if(selectedOrder == null) _currentOrder.Date = DateTime.Now;
 			DataContext = _currentOrder;
+            CbCustomers.ItemsSource = MediaCenterEntities.GetContext().Customers.ToList();
+            CbManagers.ItemsSource = MediaCenterEntities.GetContext().Managers.ToList();
+            CbServices.ItemsSource = MediaCenterEntities.GetContext().Services.ToList();
 		}
 
 		private void CbCustomers_OnTextInput(object sender, TextCompositionEventArgs e)
@@ -30,16 +33,19 @@ namespace MediaCenter.Views.Pages.Edit
 
 		private void OrderEditPage_OnLoaded(object sender, RoutedEventArgs e)
 		{
-			CbCustomers.ItemsSource = MediaCenterEntities.GetContext().Customers.ToList();
-			CbManagers.ItemsSource = MediaCenterEntities.GetContext().Managers.ToList();
-			CbServices.ItemsSource = MediaCenterEntities.GetContext().Services.ToList();
+			//CbCustomers.ItemsSource = MediaCenterEntities.GetContext().Customers.ToList();
+			//CbManagers.ItemsSource = MediaCenterEntities.GetContext().Managers.ToList();
+			//CbServices.ItemsSource = MediaCenterEntities.GetContext().Services.ToList();
 		}
 
 		private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
 		{
-			_currentOrder.IDCustomer = _currentOrder.Customer.ID;
-			_currentOrder.IDManager = _currentOrder.Manager.ID;
-			_currentOrder.IDService = _currentOrder.Service.ID;
+			//_currentOrder.IDCustomer = _currentOrder.Customer.ID;
+			//_currentOrder.IDManager = _currentOrder.Manager.ID;
+			//_currentOrder.IDService = _currentOrder.Service.ID;
+
+			// комментарий
+
 			if (_currentOrder.ID == 0) MediaCenterEntities.GetContext().Orders.Add(_currentOrder);
 			MediaCenterEntities.GetContext().SaveChanges();
 			MessageBox.Show("Данные сохранены!");

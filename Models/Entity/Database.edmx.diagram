@@ -4,14 +4,13 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="3b0a6d1b283c43e8a390cb51fd4d5c96" Name="Diagram1">
+      <Diagram DiagramId="e62c65165a044909b67739f9622d3385" Name="Diagram1">
         <EntityTypeShape EntityType="MediaCenterModel.Customer" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
         <EntityTypeShape EntityType="MediaCenterModel.Document" Width="1.5" PointX="5.75" PointY="5.75" IsExpanded="true" />
         <EntityTypeShape EntityType="MediaCenterModel.Manager" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
         <EntityTypeShape EntityType="MediaCenterModel.Order" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="MediaCenterModel.Service" Width="1.5" PointX="3" PointY="8.75" IsExpanded="true" />
         <EntityTypeShape EntityType="MediaCenterModel.Setting" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MediaCenterModel.sysdiagram" Width="1.5" PointX="7.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="MediaCenterModel.TypeService" Width="1.5" PointX="0.75" PointY="9.125" IsExpanded="true" />
         <EntityTypeShape EntityType="MediaCenterModel.User" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
         <AssociationConnector Association="MediaCenterModel.FK_Order_Customer" ManuallyRouted="false" />

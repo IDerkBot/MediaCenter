@@ -36,6 +36,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Views\Resources\Icons\logo.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
@@ -205,9 +208,6 @@
     <Compile Include="Models\Entity\Setting.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Entity\sysdiagram.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\Entity\TypeService.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
@@ -320,7 +320,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Views\Resources\Icons\" />
     <Folder Include="Views\Resources\Images\" />
     <Folder Include="Views\Resources\Templates\" />
   </ItemGroup>
@@ -355,6 +354,9 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Resources\Icons\logo.ico" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Models\Entity\Database.Context.tt">
