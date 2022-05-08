@@ -72,7 +72,7 @@
 		</Border>
 		<Button
 			Margin="0,5"
-			Click="ButtonBase_OnClick"
+			Click="BtnSave_OnClick"
 			Content="Сохранить" />
 	</StackPanel>
 </Page>

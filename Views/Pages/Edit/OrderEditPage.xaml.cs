@@ -5,7 +5,11 @@ using System.IO;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Forms;
 using System.Windows.Input;
+using DataFormats = System.Windows.DataFormats;
+using DragEventArgs = System.Windows.DragEventArgs;
+using MessageBox = System.Windows.MessageBox;
 
 namespace MediaCenter.Views.Pages.Edit
 {
@@ -38,13 +42,19 @@ namespace MediaCenter.Views.Pages.Edit
 			//CbServices.ItemsSource = MediaCenterEntities.GetContext().Services.ToList();
 		}
 
-		private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+		private void BtnSave_OnClick(object sender, RoutedEventArgs e)
 		{
 			//_currentOrder.IDCustomer = _currentOrder.Customer.ID;
 			//_currentOrder.IDManager = _currentOrder.Manager.ID;
 			//_currentOrder.IDService = _currentOrder.Service.ID;
 
 			// комментарий
+
+            if (_currentOrder.Duration < 0)
+            {
+                MessageBox.Show("Установите время больше нуля");
+                return;
+			}
 
 			if (_currentOrder.ID == 0) MediaCenterEntities.GetContext().Orders.Add(_currentOrder);
 			MediaCenterEntities.GetContext().SaveChanges();
@@ -65,14 +75,13 @@ namespace MediaCenter.Views.Pages.Edit
 			if (!string.IsNullOrWhiteSpace(TbDuration.Text) && _currentOrder.Service != null && TbDuration.Text.All(char.IsDigit))
 			{
 				var cost = MediaCenterEntities.GetContext().Services.ToList().Where(x => x.Name == _currentOrder.Service.Name).Select(x => x.Cost).First();
-				var count = decimal.Parse(TbDuration.Text);
-				var list = (cost * count).ToString().ToList();
-				list.ForEach(x =>
-				{
-					if (x == '.') x = ',';
-				});
-				var sum = string.Join("", list);
-				_currentOrder.Sum = (decimal?) double.Parse(sum);
+                if (!decimal.TryParse(TbDuration.Text, out var count))
+                {
+                    MessageBox.Show("Не верное значение");
+                    return;
+				}
+				var sum = cost * count;
+				_currentOrder.Sum = sum;
 				TbSum.Text = $"Сумма: {_currentOrder.Sum} рублей";
 			}
 		}
