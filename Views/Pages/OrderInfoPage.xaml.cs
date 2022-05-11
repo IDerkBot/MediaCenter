@@ -45,16 +45,26 @@ namespace MediaCenter.Views.Pages
 
 		private void OrderInfoPage_OnLoaded(object sender, RoutedEventArgs e)
 		{
-			var folder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-			File.WriteAllBytes($"{folder}/{Data.CurrentDirectory}/orderMusic.mp3", _currentOrder.Sound);
-			
-			var uri = new Uri($"{folder}/{Data.CurrentDirectory}/orderMusic.mp3", UriKind.Absolute);
-			_player.Open(uri);
+            if (_currentOrder.Sound != null)
+            {
+                var folder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+                File.WriteAllBytes($"{folder}/{Data.CurrentDirectory}/orderMusic.mp3", _currentOrder.Sound);
 
-			var info = TagLib.File.Create($"{folder}/{Data.CurrentDirectory}/orderMusic.mp3");
-			var time = info.Properties.Duration.Minutes * 60 + info.Properties.Duration.Seconds;
-			SPosition.Maximum = time;
-			_player.Volume = .5;
+                var uri = new Uri($"{folder}/{Data.CurrentDirectory}/orderMusic.mp3", UriKind.Absolute);
+                _player.Open(uri);
+
+                var info = TagLib.File.Create($"{folder}/{Data.CurrentDirectory}/orderMusic.mp3");
+                var time = info.Properties.Duration.Minutes * 60 + info.Properties.Duration.Seconds;
+                SPosition.Maximum = time;
+                _player.Volume = .5;
+			}
+            else
+            {
+                BtnPlayPause.IsEnabled = false;
+                SPosition.IsEnabled = false;
+				SVolume.IsEnabled = false;
+            }
+			
 		}
 
 		private readonly MediaPlayer _player = new MediaPlayer();
