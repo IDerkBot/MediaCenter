@@ -6,6 +6,7 @@ using MediaCenter.Views.Pages.Edit;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using MediaCenter.Views.Windows;
 
 namespace MediaCenter.Views.Pages
 {
@@ -98,6 +99,12 @@ namespace MediaCenter.Views.Pages
 			//	BtnEdit.Visibility = Visibility.Collapsed;
 			//	BtnAdd.Visibility = Visibility.Collapsed;
 			//}
+			BtnReport.Visibility = Data.IsDirector ? Visibility.Visible : Visibility.Collapsed;
 		}
-	}
+
+        private void BtnReport_OnClick(object sender, RoutedEventArgs e)
+        {
+            new ReportWindow().Show();
+        }
+    }
 }

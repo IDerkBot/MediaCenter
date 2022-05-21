@@ -33,8 +33,6 @@ namespace MediaCenter.Views.Pages
 			BtnProfileMove.Visibility = Data.IsManager ? Visibility.Visible : Visibility.Collapsed;
 			BtnUsersMove.Visibility = Data.IsDirector ? Visibility.Visible : Visibility.Collapsed;
 			BtnManagersMove.Visibility = Data.IsDirector ? Visibility.Visible : Visibility.Collapsed;
-			BtnDocumentTemplatesMove.Visibility = Data.IsDirector ? Visibility.Visible : Visibility.Collapsed;
-			BtnSettingsMove.Visibility = Data.IsDirector ? Visibility.Visible : Visibility.Collapsed;
 		}
 	}
 }
