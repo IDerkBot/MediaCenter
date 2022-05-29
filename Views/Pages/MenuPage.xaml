@@ -1,62 +1,52 @@
 ﻿<Page
-	x:Class="MediaCenter.Views.Pages.MenuPage"
-	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-	Title="MenuPage"
-	HorizontalAlignment="Center"
-	VerticalAlignment="Center"
-	d:DesignHeight="380"
-	d:DesignWidth="300"
-	Loaded="MenuPage_OnLoaded"
-	mc:Ignorable="d">
+    x:Class="MediaCenter.Views.Pages.MenuPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MenuPage"
+    HorizontalAlignment="Center"
+    VerticalAlignment="Center"
+    d:DesignHeight="380"
+    d:DesignWidth="300"
+    Loaded="MenuPage_OnLoaded"
+    mc:Ignorable="d">
 
-	<StackPanel Width="300">
-		<Button
-			Name="BtnProfileMove"
-			Margin="0,5"
-			Click="BtnProfileMove_OnClick"
-			Content="Профиль" />
-		<Button
-			Name="BtnCustomersMove"
-			Margin="0,5"
-			Click="BtnCustomersMove_OnClick"
-			Content="Клиенты" />
-		<Button
-			Name="BtnManagersMove"
-			Margin="0,5"
-			Click="BtnManagersMove_OnClick"
-			Content="Менеджеры" />
-		<Button
-			Name="BtnServicesMove"
-			Margin="0,5"
-			Click="BtnServicesMove_OnClick"
-			Content="Услуги" />
-		<Button
-			Name="BtnServiceTypesMove"
-			Margin="0,5"
-			Click="BtnServiceTypesMove_OnClick"
-			Content="Типы услуг" />
-		<Button
-			Name="BtnOrdersMove"
-			Margin="0,5"
-			Click="BtnOrdersMove_OnClick"
-			Content="Заказы" />
-		<Button
-			Name="BtnUsersMove"
-			Margin="0,5"
-			Click="BtnUsersMove_OnClick"
-			Content="Пользователи" />
-		<Button
-			Name="BtnDocumentTemplatesMove"
-			Margin="0,5"
-			Click="BtnDocumentTemplatesMove_OnClick"
-			Content="Шаблоны документов" />
-		<Button
-			Name="BtnSettingsMove"
-			Margin="0,5"
-			Click="BtnSettingsMove_OnClick"
-			Content="Настройки" />
-	</StackPanel>
+    <StackPanel Width="300">
+        <Button
+            Name="BtnProfileMove"
+            Margin="0,5"
+            Click="BtnProfileMove_OnClick"
+            Content="Профиль" />
+        <Button
+            Name="BtnCustomersMove"
+            Margin="0,5"
+            Click="BtnCustomersMove_OnClick"
+            Content="Клиенты" />
+        <Button
+            Name="BtnManagersMove"
+            Margin="0,5"
+            Click="BtnManagersMove_OnClick"
+            Content="Менеджеры" />
+        <Button
+            Name="BtnServicesMove"
+            Margin="0,5"
+            Click="BtnServicesMove_OnClick"
+            Content="Услуги" />
+        <Button
+            Name="BtnServiceTypesMove"
+            Margin="0,5"
+            Click="BtnServiceTypesMove_OnClick"
+            Content="Типы услуг" />
+        <Button
+            Name="BtnOrdersMove"
+            Margin="0,5"
+            Click="BtnOrdersMove_OnClick"
+            Content="Заказы" />
+        <Button
+            Name="BtnUsersMove"
+            Margin="0,5"
+            Click="BtnUsersMove_OnClick"
+            Content="Пользователи" />
+    </StackPanel>
 </Page>
