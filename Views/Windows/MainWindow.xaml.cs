@@ -32,5 +32,11 @@ namespace MediaCenter.Views.Windows
 		{
 
 		}
-	}
+
+        private void MainWindow_OnClosed(object sender, EventArgs e)
+        {
+            if (PageManager.GetPage() is OrderInfoPage page)
+                page.Stop();
+        }
+    }
 }
