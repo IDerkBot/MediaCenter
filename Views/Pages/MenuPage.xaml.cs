@@ -24,10 +24,6 @@ namespace MediaCenter.Views.Pages
 			PageManager.Navigate(new ServiceTypesPage());
 		private void BtnProfileMove_OnClick(object sender, RoutedEventArgs e) =>
 			PageManager.Navigate(new ProfilePage());
-		private void BtnDocumentTemplatesMove_OnClick(object sender, RoutedEventArgs e) =>
-			PageManager.Navigate(new DocumentTemplatesPage());
-		private void BtnSettingsMove_OnClick(object sender, RoutedEventArgs e) =>
-			PageManager.Navigate(new SettingsPage());
 		private void MenuPage_OnLoaded(object sender, RoutedEventArgs e)
 		{
 			BtnProfileMove.Visibility = Data.IsManager ? Visibility.Visible : Visibility.Collapsed;
