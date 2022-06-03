@@ -22,6 +22,9 @@ namespace MediaCenter.Views.Pages
 			DgServices.ItemsSource = MediaCenterEntities.GetContext().Services.ToList();
 			CbSort.ItemsSource = DgServices.Columns.Select(x => x.Header).ToList();
 			CbFilter.ItemsSource = MediaCenterEntities.GetContext().Services.GroupBy(x => x.TypeService1.Name).Select(x => x.Key).ToList();
+			BtnAdd.Visibility = Data.IsDirector ? Visibility.Visible : Visibility.Collapsed;
+			BtnDelete.Visibility = Data.IsDirector ? Visibility.Visible : Visibility.Collapsed;
+			Edit.Visibility = Data.IsDirector ? Visibility.Visible : Visibility.Collapsed;
 		}
 
 		#endregion

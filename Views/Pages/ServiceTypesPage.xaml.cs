@@ -48,6 +48,9 @@ namespace MediaCenter.Views.Pages
 		private void ServiceTypesPage_OnLoaded(object sender, RoutedEventArgs e)
 		{
 			DgServiceTypes.ItemsSource = MediaCenterEntities.GetContext().TypeServices.ToList();
+			BtnAdd.Visibility = Data.IsDirector ? Visibility.Visible : Visibility.Collapsed;
+			BtnDelete.Visibility = Data.IsDirector ? Visibility.Visible : Visibility.Collapsed;
+			Edit.Visibility = Data.IsDirector ? Visibility.Visible : Visibility.Collapsed;
 		}
 	}
 }
