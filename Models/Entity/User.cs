@@ -27,7 +27,7 @@ namespace MediaCenter.Models.Entity
         public string Password { get; set; }
         public byte Access { get; set; }
         public string Role => Access == 0 ? "Менеджер" : "Администратор";
-        public string Manager => Managers.Single(x => x.IDUser == ID).Fullname;
+        public string Manager => Managers.SingleOrDefault(x => x.IDUser == ID).Fullname;
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Manager> Managers { get; set; }
