@@ -11,7 +11,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
-//using word = Microsoft.Office.Interop.Word;
+using word = Microsoft.Office.Interop.Word;
 
 namespace MediaCenter.Views.Pages
 {
@@ -134,53 +134,53 @@ namespace MediaCenter.Views.Pages
 
 		private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
 		{
-			//var culture = new CultureInfo("ru-RU");
-			//var items = new Dictionary<string, string>
-			//{
-			//	["<Number>"] = _currentOrder.ID.ToString(),
-			//	["<City>"] = "Лукоянов",
-			//	["<Manager>"] = _currentOrder.Manager.Fullname,
-			//	["<Client>"] = _currentOrder.Customer.Fullname,
-			//	["<Date>"] = _currentOrder.Date.ToString(culture.DateTimeFormat.ShortDatePattern),
-			//	["<Service>"] = _currentOrder.Service.Name,
-			//	["<Sum>"] = _currentOrder.Sum.ToString(),
-			//};
-			//var app = new word.Application();
-			//var folder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-			//File.WriteAllBytes($"{folder}/{Data.CurrentDirectory}/document.docx",
-			//	MediaCenterEntities.GetContext().Documents.First().File);
-			//try
-			//{
-			//	object file = new FileInfo($"{folder}/{Data.CurrentDirectory}/document.docx").FullName;
-			//	var missing = Type.Missing;
-			//	app.Documents.Open(file);
-			//	foreach (var item in items)
-			//	{
-			//		var find = app.Selection.Find;
-			//		find.Text = item.Key;
-			//		find.Replacement.Text = item.Value;
-			//		object wrap = word.WdFindWrap.wdFindContinue;
-			//		object replace = word.WdReplace.wdReplaceAll;
+            var culture = new CultureInfo("ru-RU");
+            var items = new Dictionary<string, string>
+            {
+                ["<Number>"] = _currentOrder.ID.ToString(),
+                ["<City>"] = "Лукоянов",
+                ["<Manager>"] = _currentOrder.Manager.Fullname,
+                ["<Client>"] = _currentOrder.Customer.Fullname,
+                ["<Date>"] = _currentOrder.Date.ToString(culture.DateTimeFormat.ShortDatePattern),
+                ["<Service>"] = _currentOrder.Service.Name,
+                ["<Sum>"] = _currentOrder.Sum.ToString(),
+            };
+            var app = new word.Application();
+            var folder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            File.WriteAllBytes($"{folder}/{Data.CurrentDirectory}/document.docx",
+                MediaCenterEntities.GetContext().Documents.First().File);
+            try
+            {
+                object file = new FileInfo($"{folder}/{Data.CurrentDirectory}/document.docx").FullName;
+                var missing = Type.Missing;
+                app.Documents.Open(file);
+                foreach (var item in items)
+                {
+                    var find = app.Selection.Find;
+                    find.Text = item.Key;
+                    find.Replacement.Text = item.Value;
+                    object wrap = word.WdFindWrap.wdFindContinue;
+                    object replace = word.WdReplace.wdReplaceAll;
 
-			//		find.Execute( Type.Missing, false, false, false, missing, false, true, wrap, false, missing, replace );
-			//	}
-			//	app.ActiveDocument.SaveAs2(
-			//		$"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}/{_currentOrder.ID}-{_currentOrder.Date.ToString(culture.DateTimeFormat.ShortDatePattern)}.docx");
-			//	app.ActiveDocument.Close();
-				
-			//}
-			//catch (Exception exception)
-			//{
-			//	Console.WriteLine(exception);
-			//	throw;
-			//}
-			//finally
-			//{
-			//	app.Quit();
-			//	File.Delete($"{folder}/{Data.CurrentDirectory}/document.docx");
-			//	Process.Start(
-			//		$"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}/{_currentOrder.ID}-{_currentOrder.Date.ToString(culture.DateTimeFormat.ShortDatePattern)}.docx");
-			//}
-		}
+                    find.Execute(Type.Missing, false, false, false, missing, false, true, wrap, false, missing, replace);
+                }
+                app.ActiveDocument.SaveAs2(
+                    $"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}/{_currentOrder.ID}-{_currentOrder.Date.ToString(culture.DateTimeFormat.ShortDatePattern)}.docx");
+                app.ActiveDocument.Close();
+
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception);
+                throw;
+            }
+            finally
+            {
+                app.Quit();
+                File.Delete($"{folder}/{Data.CurrentDirectory}/document.docx");
+                Process.Start(
+                    $"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}/{_currentOrder.ID}-{_currentOrder.Date.ToString(culture.DateTimeFormat.ShortDatePattern)}.docx");
+            }
+        }
 	}
 }
