@@ -20,7 +20,13 @@ namespace MediaCenter.Views.Pages
 
 		private void UsersPage_OnLoaded(object sender, RoutedEventArgs e)
 		{
-			DgUsers.ItemsSource = MediaCenterEntities.GetContext().Users.ToList();
+			var users = MediaCenterEntities.GetContext().Users.ToList();
+			users.ForEach(x =>
+            {
+                if (x.Managers.Count > 0)
+                    x.Manager = x.Managers.Single().Fullname;
+            });
+            DgUsers.ItemsSource = users;
 			CbSort.ItemsSource = DgUsers.Columns.Select(x => x.Header).ToList();
 			CbFilter.ItemsSource = new List<string> { "Менеджер", "Директор" };
 		}
