@@ -38,7 +38,7 @@ namespace MediaCenter.Views.Pages.Edit
 
 		private void CbRole_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
-			_currentUser.Access = CbRole.SelectedItem.ToString() == "Менеджер" ? (byte) 0 : (byte) 1;
+			//_currentUser.Access = CbRole.SelectedItem.ToString() == "Менеджер" ? (byte) 0 : (byte) 1;
 		}
 	}
 }
